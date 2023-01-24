@@ -1,25 +1,23 @@
 body {
   margin: 0;
-}
-
-#root {
-  width: 100vw;
-  height: 100vh;
   background-color: bisque;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.nodeContainer {
+#root {
   display: flex;
-  height: fit-content;
-  width: 200px;
-  border: solid 2px white;
+  flex-direction: row;
+  width: 600px;
+  height: 600px;
+  background-color: aliceblue;
   flex-wrap: wrap;
-  background-color: black;
 }
 
-.x {
-  background-color: gray;
+#root > * {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: black;
 }

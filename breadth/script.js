@@ -1,27 +1,31 @@
-const body = document.querySelector('#root');
-
-const container = document.createElement('div');
-container.className = 'nodeContainer';
-body.appendChild(container);
-
-const nodes = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'];
-numberOfNodes = nodes.length - 1;
-numberOfObstacles = 2; //changeable
-
-for (let i = 0; i < numberOfObstacles; i++) {
-  nodes[Math.round(Math.random() * numberOfNodes)] = 'x';
-  console.log('ran');
+const root = document.querySelector('#root');
+let results = [];
+// 600px width 600px height
+for (let i = 0; i < 36; i++) {
+  let node = document.createElement('div');
+  node.className = 'node';
+  root.appendChild(node);
 }
-//initializing all the nodes inside the graph
-nodes.forEach((element) => {
-  const node = document.createElement('div');
-  node.className = element;
-  container.appendChild(node);
-  node.style.width = '50px';
-  node.style.height = '50px';
-  node.style.border = 'solid white';
-  node.style.flexGrow = '1';
-  node.textContent = element;
-  node.style.color = 'white';
+
+//offsetLeft offsetTop
+let rootX = Math.round(root.getBoundingClientRect().x);
+let rootY = Math.round(root.getBoundingClientRect().y);
+//choose which Y section to check
+function checkX(y) {
+  y = y * 100;
+  for (i = 0; i < 6; i++) {
+    let x = i * 100;
+    let currentNode = document.elementFromPoint(rootX + x, rootY + y);
+    results.push(currentNode);
+  }
+}
+checkX(0);
+
+console.log(results);
+
+window.addEventListener('click', (e) => {
+  console.log(e.clientX + 'x', e.clientY + 'y');
+  console.log(document.elementFromPoint(e.clientX, e.clientY));
 });
-console.log(document.querySelector('.nodeContainer').children);
+// console.log(test.getBoundingClientRect());
+// console.log(x + 'x');
