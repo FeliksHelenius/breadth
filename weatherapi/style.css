@@ -1,6 +1,57 @@
-body {
+/* body {
   margin: 0;
+  background-color: bisque;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#root {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  height: 600px;
+  background-color: aliceblue;
+  flex-wrap: wrap;
+}
+#root > * {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border: solid white;
+  box-sizing: border-box;
+} */
+
+body {
+  margin: 0;
+}
+
+#map {
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+.obstacle {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+}
+
+.path {
+  display: relative;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: black;
 }
